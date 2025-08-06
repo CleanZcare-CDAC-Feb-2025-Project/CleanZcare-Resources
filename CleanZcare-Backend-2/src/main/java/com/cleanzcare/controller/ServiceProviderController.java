@@ -36,4 +36,6 @@ public class ServiceProviderController {
     public ResponseEntity<String> updateApproval(@PathVariable Long providerId, @RequestParam boolean approved) {
         return ResponseEntity.ok(providerService.setApproval(providerId, approved));
     }
+    
+
 } 
