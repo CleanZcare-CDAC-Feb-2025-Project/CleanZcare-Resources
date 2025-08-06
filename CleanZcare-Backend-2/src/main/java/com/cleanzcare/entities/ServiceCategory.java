@@ -46,6 +46,6 @@ public class ServiceCategory {
 	    }
 	    
 	    @OneToMany(mappedBy = "serviceCategory", cascade = CascadeType.ALL)
-	    private List<Service> services;
+	    private List<ServiceEntity> services;
 
 }

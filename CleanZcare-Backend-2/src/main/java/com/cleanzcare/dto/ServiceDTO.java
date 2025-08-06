@@ -10,14 +10,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ServiceDTO {
-	private Long serviceId;
-
+    private Long serviceId;
     private String serviceName;
-
     private String description;
-
     private Double price;
-
-    private Long categoryId; // Reference to service_categories table
-
+    private Long categoryId; // FK reference to service category
 }
