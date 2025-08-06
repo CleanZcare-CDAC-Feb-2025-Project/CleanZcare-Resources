@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class FitmefyApplication {
+public class CleanZcareApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FitmefyApplication.class, args);
+        SpringApplication.run(CleanZcareApplication.class, args);
     }
 
     /**
