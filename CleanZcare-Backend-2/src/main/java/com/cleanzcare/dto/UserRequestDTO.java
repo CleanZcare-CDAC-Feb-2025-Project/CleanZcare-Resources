@@ -6,9 +6,9 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
-    private Long id;
+public class UserRequestDTO {
     private String name;
     private String email;
+    private String password;
     private Set<String> roles;
 }

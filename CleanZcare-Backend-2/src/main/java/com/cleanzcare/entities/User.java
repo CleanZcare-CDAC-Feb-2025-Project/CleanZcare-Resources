@@ -3,34 +3,29 @@ package com.cleanzcare.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
-@Table(name = "users")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@ToString(exclude = "providerDetails")
+@EqualsAndHashCode(exclude = "providerDetails")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
-    @Column(nullable = false)
-    private String fullName;
-
-    @Column(unique = true, nullable = false)
+    private String name;
     private String email;
-
-    @Column(nullable = false)
     private String password;
 
-    private String mobileNo;
-
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role userRole;
+    private Set<Role> roles = new HashSet<>();
 
-    @Column(nullable = false)
-    private String status = "active";
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private ServiceProviderDetails providerDetails;
 }
