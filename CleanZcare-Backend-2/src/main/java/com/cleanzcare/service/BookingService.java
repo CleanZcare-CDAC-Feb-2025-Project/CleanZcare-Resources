@@ -5,6 +5,7 @@ import com.cleanzcare.dto.BookingResponseDTO;
 
 public interface BookingService {
     BookingResponseDTO createBooking(BookingRequestDTO bookingDTO);
+    BookingResponseDTO getBookingById(Long id);
 }
 
 

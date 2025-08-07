@@ -5,6 +5,9 @@ import com.cleanzcare.dto.BookingResponseDTO;
 import com.cleanzcare.entities.Booking;
 import com.cleanzcare.repository.BookingRepository;
 import com.cleanzcare.service.BookingService;
+
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +27,13 @@ public class BookingServiceImpl implements BookingService {
         Booking savedBooking = bookingRepository.save(booking);
         return modelMapper.map(savedBooking, BookingResponseDTO.class);
     }
+
+	@Override
+	public BookingResponseDTO getBookingById(Long id) {
+		 Optional<Booking> optionalBooking = bookingRepository.findById(id);
+	        if (optionalBooking.isPresent()) {
+	            return modelMapper.map(optionalBooking.get(), BookingResponseDTO.class);
+	        }
+	        throw new RuntimeException("Booking not found with ID: " + id);
+	}
 }
